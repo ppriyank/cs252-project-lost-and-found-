@@ -2,14 +2,23 @@
 
 After installing pycharm on your machine 
 
-open folder : /run/user/1000/sftp://ubuntu@172.27.39.137/home/cs252/ 
+open folder : /run/user/1000/sftp://ubuntu@ssh ubuntu@172.27.43.36/home/cs252/ 
 
 This is your project 
 
-if in future some difficulties :
---> install mysql on your server, 
+Local Host: 
+Set up procedure... "Make File" will be uploaded later: 
+
+--> sudo apt-get install mysql-server
+--> sudo mysql_secure_installation
+--> sudo mysql_install_db 
+--> sudo apt-get install libmysqlclient-dev
+--> sudo apt-get install libmysqlclient-dev python-dev
+--> sudo apt-get install python-pip
+--> sudo apt-get install python-setuptools
+--> sudo apt-get install python-MySQLdb
 --> sudo pip install mysql-python 
---> easy-install django
+--> sudo easy_install django
 
 --> python manage.py makemigrations 
 --> pythan manage.py migrate
