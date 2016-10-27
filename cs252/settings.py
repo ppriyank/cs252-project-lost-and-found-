@@ -81,6 +81,12 @@ WSGI_APPLICATION = 'cs252.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+SILENCED_SYSTEM_CHECKS = [
+    'django_mysql.W002',
+]
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -89,6 +95,10 @@ DATABASES = {
         'PASSWORD': 'yo',
         'HOST': 'localhost',
         'PORT': '',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+
     }
 }
 
