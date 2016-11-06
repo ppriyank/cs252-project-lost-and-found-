@@ -3,10 +3,11 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render
 
 from .models import Data
-
+from search import print_searchtag
 
 def index(request):
     all_data= Data.objects.all()
+    print_searchtag()
     html = ''
     for data in all_data :
         url = '/LostAndFound/'+ str(data.id) +'/'
