@@ -1,20 +1,20 @@
 from django.http import HttpResponse, Http404
-
 from django.shortcuts import render
-
 from .models import Data
-
+from mailing import form_entry
 
 def index(request):
     all_data= Data.objects.all()
-    html = ''
-    for data in all_data :
-        url = '/LostAndFound/'+ str(data.id) +'/'
-        html += '<a href="' + url + '">' + data.name + '</a> <br>'
+    return render(request,'lost/index.html',{'all_data':all_data})
 
-    return HttpResponse(html)
-
-
+def form(request):
+    all_data= Data.objects.all()
+    # mail = all_data.email
+    print "----------------------"
+    mail = 'shanuv@iitk.ac.in'
+    print "======"
+    form_entry(mail)
+    return render(request,'lost/index.html',{'all_data':all_data})
 
 # Create your views here.
 
@@ -22,7 +22,10 @@ def index(request):
 def Details(request, data_id):
     try:
         data = Data.objects.get(pk =data_id )
-        return HttpResponse("<h2> Details for Object number : " + str(data_id) + " </h2> " )
+        img_url="http://oa.cc.iitk.ac.in:8181/Oa/Jsp/Photo/" + str(data.rollno) + "_0.jpg"
+        return render(request,'lost/details.html',{'data':data, 'img_url': img_url})
     except Data.DoesNotExist :
         raise Http404("Such Database entry doesn't exists")
+
+
 

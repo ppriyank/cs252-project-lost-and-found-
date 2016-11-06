@@ -70,6 +70,22 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cs252.wsgi.application'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mmtp.iitk.ac.in'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'ppriyank'
+
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_USE_TLS = True
+
+
+
+
+#
+#
+# DEFAULT_FROM_EMAIL = 'abc@domain.com'
+# SERVER_EMAIL = 'abc@domain.com'
 
 
 # Database
