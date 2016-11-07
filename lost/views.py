@@ -1,10 +1,11 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from .models import Data
-from mailing import form_entry
+from mailing import form_entry, process_mail
 
 def index(request):
     all_data= Data.objects.all()
+    process_mail()
     return render(request,'lost/index.html',{'all_data':all_data})
 
 def form(request):
