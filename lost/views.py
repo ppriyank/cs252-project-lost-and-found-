@@ -37,3 +37,10 @@ def Details(request, data_id):
             data.tags.add(tag)
         raise Http404("Such Database entry doesn't exists")
 
+
+def view_tag(request,tag_name):
+    tag= Tag.object.get(pk=tag_name)
+    matching_objects=tag.Data_set.filter(Tag='Red') #return all the Data that is related to a particular tag
+    return render_to_response("tags.html",("tag_name":tag_name)) #tags.html will not exist here 
+
+
